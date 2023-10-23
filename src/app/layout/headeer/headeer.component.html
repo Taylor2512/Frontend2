@@ -1,0 +1,25 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #48aaf0">
+    <a class="navbar-brand" href="#">Tu Marca</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <form class="form-inline my-2 my-lg-0 ml-auto">
+        <div class="input-group  ">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-primary"
+            (click)="listarPersonas();"
+
+            type="button">Listar</button>
+          </div>
+          <div class="p-align-end">
+            <button pButton type="button" label="Crear" class="p-button-primary" (click)="createPerson()"></button>
+          </div>
+          
+        </div>
+      </form>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,92 @@
+<div class="p-align-end">
+  <button pButton type="button" label="Regresar" class="p-button-primary" (click)="goBack()"></button>
+</div>
+
+<p-panel header="Editar Persona">
+
+  <div class="">
+    <form [formGroup]="formEditPerson" class="filter-form">
+      <div class="row my-0">
+        <div class="col-md-4 col-lg-4">
+          <div class="negrita-label-form">Username</div>
+          <input
+            id="username"
+            type="text"
+            pInputText
+            formControlName="username"
+          />
+        </div>
+        <div class="col-md-4 col-lg-4">
+          <div class="negrita-label-form">cédula</div>
+          <input  id="cedula" type="text" pInputText formControlName="cedula" />
+        </div>
+        <div class="col-md-4 col-lg-4">
+          <div class="negrita-label-form">Primer Nombre</div>
+          <input
+            id="firstName"
+            type="text"
+            pInputText
+            formControlName="firstName"
+          />
+        </div>
+        <div class="col-md-4 col-lg-4">
+          <div class="negrita-label-form">Segundo Nombre</div>
+          <input
+            id="midleName"
+            type="text"
+            pInputText
+            formControlName="midleName"
+          />
+        </div>
+        <div class="col-md-4 col-lg-4">
+          <div class="negrita-label-form">Primer Apellido</div>
+          <input
+            id="lastName"
+            type="text"
+            pInputText
+            formControlName="lastName"
+          />
+          </div>  
+ 
+          <div class="col-md-6 col-lg-4">
+            <div class="negrita-label-form">Segundo Apellido</div>
+            <input
+              id="lastNameSecond"
+              type="text"
+              pInputText
+              formControlName="lastNameSecond"
+            />
+          </div>
+      
+         
+      </div>
+    </form>
+  </div>
+  <ng-template pTemplate="footer">
+    <div class="row d-flex actions gap-1">
+      <button
+        pButton
+        type="button"
+        pRipple
+        (click)="saveEditPerson()"
+
+        class="p-button-outlined p-button-success p-button-sm btn-small w-auto custom-button"
+      >
+        <span class="p-button-label">
+          <i class="pi pi-file-excel"> </i>&nbsp;Save
+        </span>
+      </button>
+
+      <button
+        pButton
+        type="button"
+        pRipple
+        class="p-button-outlined p-button-sm btn-small w-auto"
+      >
+        <span class="p-button-label">
+          <i class="pi pi-eraser"></i>&nbsp;Cancel
+        </span>
+      </button>
+    </div>
+  </ng-template>
+</p-panel>
