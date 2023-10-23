@@ -1,0 +1,13 @@
+# Etapa 1: Construye la aplicación Angular
+FROM node:18.17.1 as node
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm install
+COPY . .
+RUN npm run build --prod
+
+# Etapa 2: Configura el servidor Nginx y copia la aplicación compilada
+FROM nginx:alpine
+COPY --from=node /app/dist/app-global /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PersonaDto, PersonaRequest, Sort } from 'src/app/data/PersonaModel';
 import { PersonaService } from '../persona.service';
@@ -9,18 +9,23 @@ import { EventManager } from '@angular/platform-browser';
   templateUrl: './persona-list.component.html',
   styleUrls: ['./persona-list.component.css']
 })
-export class PersonaListComponent {
+export class PersonaListComponent implements OnInit{
   loading: any;
   logsList!:PersonaDto[];
   entityFilterRequest:PersonaRequest | undefined;
   totalRows:any;
   constructor(private route: Router,private personaService:PersonaService){
-    this.entityFilterRequest={
-  
-    }
-   this.queryDataToServiceRemote(this.entityFilterRequest);
+    this.InitData();
   
   }
+    private InitData() {
+      this.entityFilterRequest = {};
+      this.queryDataToServiceRemote(this.entityFilterRequest);
+    }
+
+    ngOnInit(): void {
+      this.InitData();
+    }
   loadLogsLazy(event: any) {
     if(!this.entityFilterRequest){
       return;
@@ -44,6 +49,7 @@ export class PersonaListComponent {
   
   editPerson(id: number){
     if(id > 0) {
+      this.logsList=[];
       this.navieditPerson(id);
     }
   }
@@ -54,7 +60,7 @@ export class PersonaListComponent {
     });    this.entityFilterRequest={
   
     }
-   this.queryDataToServiceRemote(this.entityFilterRequest);
+    this.InitData();
 
   }
   navieditPerson(id:number) {

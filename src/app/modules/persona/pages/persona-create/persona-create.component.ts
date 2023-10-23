@@ -17,6 +17,7 @@ export class PersonaCreateComponent {
   formEditPerson!: FormGroup;
   fields!: any;
   constructor(private formBuilder: FormBuilder,
+    private routerparams: Router,
      private location: Location,
 
     private personaService: PersonaService ) {
@@ -60,9 +61,14 @@ export class PersonaCreateComponent {
       .subscribe((result) => {
         // Maneja la respuesta del servicio
       });
-      
+      this.routerparams.navigate(["persona/list"]);
+
+    }
+    cancelbtn(){
+      this.routerparams.navigate(["persona/list"]);
     }
 
+ 
     getDatosPersona(): any {
       return {
         username: {name: 'Usuario', required: false},

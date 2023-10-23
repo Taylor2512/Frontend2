@@ -3,7 +3,7 @@
       <div class="col-md-12 col-lg-12">
         <p-table [value]="logsList"
                  [paginator]="true"
-                 [rows]="10" 
+                 [rows]="5" 
                  (onLazyLoad)="loadLogsLazy($event)"
                  [totalRecords]="totalRows"
                  [lazy]="true"
@@ -11,6 +11,7 @@
                  scrollDirection="both"
                  currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros"
         >
+        
           <ng-template pTemplate="header">
             <tr>
               <th [hidden]="true" scope="col">

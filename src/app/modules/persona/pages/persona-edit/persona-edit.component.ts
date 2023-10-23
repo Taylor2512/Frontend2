@@ -95,9 +95,12 @@ export class PersonaEditComponent {
       .subscribe((result) => {
         // Maneja la respuesta del servicio
       });
+      this.routerparams.navigate(["persona/list"]);
       
     }
-
+    cancelbtn(){
+      this.routerparams.navigate(["persona/list"]);
+    }
     getDatosPersona(): any {
       return {
         username: {name: 'Usuario', required: false},
